@@ -6,15 +6,12 @@ def part01(wire1, wire2):
     return min(distances)
 
 
-def part02(code, target=19690720):
-    for noun in range(100):
-        for verb in range(100):
-            new_code = code.copy()
-            new_code[1] = noun
-            new_code[2] = verb
-            new_code = part01(new_code)
-            if new_code[0] == target:
-                return 100 * noun + verb
+def part02(wire1, wire2):
+    visited1 = _visit(wire1)
+    visited2 = _visit(wire2)
+    crossover = _intersection(visited1, visited2)
+    distances = [visited1.index(c) + visited2.index(c) for c in crossover]
+    return min(distances) + 2 # Don't know why +2 is needed
 
 def _visit(wire):
     visited = []
