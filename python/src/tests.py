@@ -1,5 +1,5 @@
 import unittest
-import day01, day02, day03
+import day01, day02, day03, day04
 
 def input_data(file_name, sep, type='string'):
     try:
@@ -67,6 +67,14 @@ class TestDay03(unittest.TestCase):
         test_data_wire1 = test_data[0].split(',')
         test_data_wire2 = test_data[1].split(',')
         self.assertEqual(day03.part02(test_data_wire1, test_data_wire2), 93654)
+
+class TestDay04(unittest.TestCase):
+
+    def test_part01(self):
+        self.assertEqual(day04.part01(240920, 789857), 1154)
+    def test_part02(self):
+        self.assertEqual(day04.part02(240920, 789857), 750)
+
 
 if __name__ == '__main__':
     unittest.main()
